@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "finalgame.Plugins", "finalgame.Plugins.csproj", "{FE096A5F-B830-CC9A-1008-92302E739019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "finalgame", "finalgame.csproj", "{F3F7586A-9A79-4E4B-F6DB-38DE7C1F9B73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "finalgame.Editor", "finalgame.Editor.csproj", "{05473305-C1BA-34D5-5FC1-C4AC89F7E484}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE096A5F-B830-CC9A-1008-92302E739019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE096A5F-B830-CC9A-1008-92302E739019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE096A5F-B830-CC9A-1008-92302E739019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE096A5F-B830-CC9A-1008-92302E739019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F7586A-9A79-4E4B-F6DB-38DE7C1F9B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F7586A-9A79-4E4B-F6DB-38DE7C1F9B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F7586A-9A79-4E4B-F6DB-38DE7C1F9B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F7586A-9A79-4E4B-F6DB-38DE7C1F9B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05473305-C1BA-34D5-5FC1-C4AC89F7E484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05473305-C1BA-34D5-5FC1-C4AC89F7E484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05473305-C1BA-34D5-5FC1-C4AC89F7E484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05473305-C1BA-34D5-5FC1-C4AC89F7E484}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
