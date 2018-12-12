@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitiy3DGame.Plugins", "Unitiy3DGame.Plugins.csproj", "{6E010B40-F5D4-1B95-7111-66BF5471FFE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitiy3DGame", "Unitiy3DGame.csproj", "{B3F5FDFA-F76D-8883-34BA-604B16C63C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitiy3DGame.Editor", "Unitiy3DGame.Editor.csproj", "{86496A7C-1EB2-3EDE-FE0D-07CB106E772A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E010B40-F5D4-1B95-7111-66BF5471FFE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E010B40-F5D4-1B95-7111-66BF5471FFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E010B40-F5D4-1B95-7111-66BF5471FFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E010B40-F5D4-1B95-7111-66BF5471FFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F5FDFA-F76D-8883-34BA-604B16C63C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F5FDFA-F76D-8883-34BA-604B16C63C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F5FDFA-F76D-8883-34BA-604B16C63C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F5FDFA-F76D-8883-34BA-604B16C63C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86496A7C-1EB2-3EDE-FE0D-07CB106E772A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86496A7C-1EB2-3EDE-FE0D-07CB106E772A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86496A7C-1EB2-3EDE-FE0D-07CB106E772A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86496A7C-1EB2-3EDE-FE0D-07CB106E772A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
