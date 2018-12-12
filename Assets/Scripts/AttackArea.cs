@@ -10,6 +10,7 @@ public class AttackArea : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         status = transform.root.GetComponent<CharacterStatus>();
+     
 
     }
 	public class AttackInfo
