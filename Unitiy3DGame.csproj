@@ -85,10 +85,13 @@
     <Compile Include="Assets\Scripts\EnemyCtrl.cs" />
     <Compile Include="Assets\Scripts\EnemyGenerator.cs" />
     <Compile Include="Assets\Scripts\FollowCamara.cs" />
+    <Compile Include="Assets\Scripts\FollowPlayer2.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HitArea.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerControl2.cs" />
     <Compile Include="Assets\Scripts\PlayerCtrl1.cs" />
+    <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SearchArea.cs" />
     <Compile Include="Assets\Scripts\SwordSkill.cs" />
   </ItemGroup>
