@@ -178,7 +178,7 @@ public class PlayerCtrl1 : MonoBehaviour {
         else
         {
             if(Qgage<100)
-            Qgage += 3.1f;
+            Qgage += 1.6f;
         }
     }
 

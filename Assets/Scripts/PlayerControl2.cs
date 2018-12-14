@@ -7,10 +7,10 @@ public class PlayerControl2 : MonoBehaviour {
     const float RayCastMaxDistance = 100.0f;
     CharacterStatus status;
     CharaAnimation charAnimation;
-    Transform attackTarget;
+    public GameObject sword;
     InputManager inputManager;
 
-    Vector3 Wposition;
+
     GameObject gameManager;
 
     public float attackRange = 1.5f;
@@ -97,7 +97,7 @@ public class PlayerControl2 : MonoBehaviour {
         status.SkillW = true;
         //move.walkSpeed = 130.0f;
         //  transform.FindChild("Hips").GetComponent<Rigidbody>().AddForce(Wposition*1000.0f);
-        Wposition = Vector3.zero;
+
     }
     void Walking()
     {
@@ -105,41 +105,19 @@ public class PlayerControl2 : MonoBehaviour {
         if (inputManager.isW())
         {
             ChangeState(State.SkillW);
-            attackTarget = null;
+
         }
         if (inputManager.isQ())
         {
 
             ChangeState(State.SkillQ);
-            attackTarget = null;
+     
         }
 
         else if (inputManager.Clicked())
-        {
-
-            Ray ray = Camera.main.ScreenPointToRay(inputManager.GetCursorPosition());
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, RayCastMaxDistance, (1 << LayerMask.NameToLayer("Ground")) |
-                (1 << LayerMask.NameToLayer("EnemyHit"))))
-            {
-
-            
-                if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("EnemyHit"))
-                {
-                    Vector3 hitpoint = hitInfo.point;
-                    hitpoint.y = transform.position.y;
-                    float distance = Vector3.Distance(hitpoint, transform.position);
-                    if (distance < attackRange)
-                    {
-
-                        //공격
-                        attackTarget = hitInfo.collider.transform;
-                        ChangeState(State.Attacking);
-                    }
-                  
-                }
-
-            }
+        { 
+            ChangeState(State.Attacking);
+        
         }
     }
 
@@ -156,10 +134,7 @@ public class PlayerControl2 : MonoBehaviour {
         StateStartCommon();
         status.attacking = true;
 
-        Vector3 targetDirection = (attackTarget.position -
-            transform.position).normalized;
-        SendMessage("SetDirection", targetDirection);
-        SendMessage("StopMove");
+   
     }
     void SkillQing()
     {
@@ -168,7 +143,7 @@ public class PlayerControl2 : MonoBehaviour {
         {
             status.SkillQ = false;
 
-            GameObject.FindGameObjectWithTag("sword").SendMessage("SendQgage", Qgage);
+            sword.SendMessage("SendQgage", Qgage);
             ChangeState(State.Walking);
         }
         else
@@ -187,23 +162,6 @@ public class PlayerControl2 : MonoBehaviour {
         if (charAnimation.IsAttacked())
             ChangeState(State.Walking);
 
-        if (inputManager.Clicked())
-        {
-
-            Ray ray = Camera.main.ScreenPointToRay(inputManager.GetCursorPosition());
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, RayCastMaxDistance, (1 << LayerMask.NameToLayer("Ground"))))
-            {
-
-                if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
-                {
-                    SendMessage("SetDestination", hitInfo.point);
-                    ChangeState(State.Walking);
-                    attackTarget = null;
-                }
-
-            }
-        }
     }
 
     void Died()

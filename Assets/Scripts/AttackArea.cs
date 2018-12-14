@@ -4,13 +4,14 @@ using System.Collections;
 public class AttackArea : MonoBehaviour {
 
     CharacterStatus status;
+    BossStatus bossstatus;
 
     bool QAttack = false;
     int QDamege = 0;
 	// Use this for initialization
 	void Start () {
         status = transform.root.GetComponent<CharacterStatus>();
-     
+        bossstatus = transform.root.GetComponent<BossStatus>();
 
     }
 	public class AttackInfo
@@ -26,7 +27,10 @@ public class AttackArea : MonoBehaviour {
 
         if (!QAttack)
         {
-            attackInfo.attackPower = status.Power;
+            if (status != null)
+                attackInfo.attackPower = status.Power;
+            else
+                attackInfo.attackPower = bossstatus.Power;
             attackInfo.attacker = transform.root;
             attackInfo.isSkillQ = false;
         }
@@ -44,8 +48,12 @@ public class AttackArea : MonoBehaviour {
    
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("충돌");
             other.SendMessage("Damage", GetAttackInfo());
+        if (status != null)
             status.lastAttackTarget = other.transform.root.gameObject;
+      else
+            bossstatus.lastAttackTarget = other.transform.root.gameObject;
             
 
     }

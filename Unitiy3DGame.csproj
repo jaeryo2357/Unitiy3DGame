@@ -79,6 +79,9 @@
     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vPickupItem.cs" />
     <Compile Include="Assets\Scripts\AttackArea.cs" />
     <Compile Include="Assets\Scripts\AttackAreaActivator.cs" />
+    <Compile Include="Assets\Scripts\BossAnimation.cs" />
+    <Compile Include="Assets\Scripts\BossController.cs" />
+    <Compile Include="Assets\Scripts\BossStatus.cs" />
     <Compile Include="Assets\Scripts\CharaAnimation.cs" />
     <Compile Include="Assets\Scripts\CharacterMove.cs" />
     <Compile Include="Assets\Scripts\CharacterStatus.cs" />
