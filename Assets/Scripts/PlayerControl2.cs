@@ -102,11 +102,7 @@ public class PlayerControl2 : MonoBehaviour {
     void Walking()
     {
 
-        if (inputManager.isW())
-        {
-            ChangeState(State.SkillW);
-
-        }
+        
         if (inputManager.isQ())
         {
 

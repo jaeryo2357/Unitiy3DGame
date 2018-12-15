@@ -27,9 +27,18 @@ public class AttackAreaActivator : MonoBehaviour {
         foreach (Collider attackAreaCollider in attackAreaColiders)
             attackAreaCollider.enabled = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void NotHit()
+    {
+        transform.FindChild("Hips").GetComponent<BoxCollider>().enabled = false;
+    }
+    public void NowHit()
+    {
+        transform.FindChild("Hips").GetComponent<BoxCollider>().enabled = true;
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }

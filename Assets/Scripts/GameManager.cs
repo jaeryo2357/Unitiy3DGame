@@ -47,6 +47,13 @@ public class GameManager : MonoBehaviour {
         playerHp -= power;
         HpText.GetComponent<Text>().text = playerHp + "/100";
     }
+
+    public void playerHpUp(int power)
+    {
+        Hp.GetComponent<Image>().fillAmount += (float)power / 100;
+        playerHp += power;
+        HpText.GetComponent<Text>().text = playerHp + "/100";
+    }
 	// Update is called once per frame
 	void Update () {
 	

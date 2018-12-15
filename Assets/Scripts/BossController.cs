@@ -150,7 +150,8 @@ public class BossController : MonoBehaviour
         if (bossAnimation.IsAttacked5())
         {
             ChangeState(State.Walking);
-            characterMove.walkSpeed = 3.0f;
+            characterMove.walkSpeed = 2.6f;
+            waitTime = Random.Range(waitBaseTime, waitBaseTime * 4.0f);
         }
         }
     // 추적 시작.

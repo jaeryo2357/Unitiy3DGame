@@ -150,14 +150,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.78571427
+      - time: 0.43970668
         functionName: EndAttackHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9411765
+      - time: 0.64079624
         functionName: EndAttack
         data: 
         objectReferenceParameter: {instanceID: 0}

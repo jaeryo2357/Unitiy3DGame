@@ -77,6 +77,7 @@
     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vDestroyGameObject.cs" />
     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vExtensions.cs" />
     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vPickupItem.cs" />
+    <Compile Include="Assets\Scripts\AppleScripts.cs" />
     <Compile Include="Assets\Scripts\AttackArea.cs" />
     <Compile Include="Assets\Scripts\AttackAreaActivator.cs" />
     <Compile Include="Assets\Scripts\BossAnimation.cs" />
@@ -94,9 +95,13 @@
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\PlayerControl2.cs" />
     <Compile Include="Assets\Scripts\PlayerCtrl1.cs" />
+    <Compile Include="Assets\Scripts\PlayerHit.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SearchArea.cs" />
     <Compile Include="Assets\Scripts\SwordSkill.cs" />
+    <Compile Include="Assets\Warrior Pack Bundle 3 FREE\Code\IKHands.cs" />
+    <Compile Include="Assets\Warrior Pack Bundle 3 FREE\Code\SmoothFollow.cs" />
+    <Compile Include="Assets\Warrior Pack Bundle 3 FREE\Code\WarriorAnimationDemoFREE.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\README_Basic.txt" />
