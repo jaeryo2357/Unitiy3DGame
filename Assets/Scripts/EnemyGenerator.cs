@@ -31,6 +31,7 @@ public class EnemyGenerator : MonoBehaviour {
             {
                 existEnemys[enemyCount] = Instantiate(enemyPrefab, transform.position,
                     transform.rotation) as GameObject;
+                existEnemys[enemyCount].transform.position = new Vector3(transform.position.x+Random.Range(-4.0f,4.0f), transform.position.y, transform.position.z + Random.Range(-4.0f, 4.0f));
                 return;
             }
         }

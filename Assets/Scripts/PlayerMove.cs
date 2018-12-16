@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour {
 
 
 
-        if (!status.SkillQ)
+        if (!status.SkillQ&&!status.attacking)
         {
             //Movement
             float forwardSpeed = Input.GetAxis("Vertical") * movementSpeed;
@@ -66,6 +66,13 @@ public class PlayerMove : MonoBehaviour {
             characterController.SimpleMove(speed);
 
 
+        }
+        else
+        {
+            myAnimator.SetBool("S", false);
+            myAnimator.SetBool("N", false);
+            myAnimator.SetBool("E", false);
+            myAnimator.SetBool("W", false);
         }
     }
 }

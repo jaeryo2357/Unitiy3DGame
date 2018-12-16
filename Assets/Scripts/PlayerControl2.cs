@@ -22,7 +22,7 @@ public class PlayerControl2 : MonoBehaviour {
         Attacking,
         SkillQ,
         Died,
-        SkillW
+        Kick
     };
     State state = State.Walking;
 
@@ -52,7 +52,7 @@ public class PlayerControl2 : MonoBehaviour {
             case State.SkillQ:
                 SkillQing();
                 break;
-            case State.SkillW:
+            case State.Kick:
                 SkillWing();
                 break;
         }
@@ -71,7 +71,7 @@ public class PlayerControl2 : MonoBehaviour {
                 case State.SkillQ:
                     SkillQStart();
                     break;
-                case State.SkillW:
+                case State.Kick:
                     SkillWStart();
                     break;
                 case State.Died:
@@ -85,16 +85,23 @@ public class PlayerControl2 : MonoBehaviour {
 
     void SkillWing()
     {
-        ChangeState(State.Walking);
-        //move.walkSpeed = 6.0f;
-        status.SkillW = false;
-        inputManager.setW(false);
+        
+        if (charAnimation.IsSkillW())
+        { 
+            ChangeState(State.Walking);
+            inputManager.setW(false);
+            status.SkillW = false;
+            sword.SendMessage("SendW", false);
+        }
+
+
     }
 
     void SkillWStart()
     {
         StateStartCommon();
         status.SkillW = true;
+        sword.SendMessage("SendW", true);
         //move.walkSpeed = 130.0f;
         //  transform.FindChild("Hips").GetComponent<Rigidbody>().AddForce(Wposition*1000.0f);
 
@@ -109,8 +116,12 @@ public class PlayerControl2 : MonoBehaviour {
             ChangeState(State.SkillQ);
      
         }
+        if(inputManager.isW())
+        {
+            ChangeState(State.Kick);
+        }
 
-        else if (inputManager.Clicked())
+        if (inputManager.Clicked())
         { 
             ChangeState(State.Attacking);
         
@@ -127,6 +138,7 @@ public class PlayerControl2 : MonoBehaviour {
 
     void AttackStart()
     {
+        sword.SendMessage("QEnd");
         StateStartCommon();
         status.attacking = true;
 

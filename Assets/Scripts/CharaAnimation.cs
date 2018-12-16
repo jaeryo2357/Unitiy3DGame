@@ -9,7 +9,8 @@ public class CharaAnimation : MonoBehaviour {
     bool isDown=false;
     bool attacked = false;
     bool attackedQ = false;
-    bool SkillW = false;
+
+    bool SkillWed = false;
     bool Attacking = false;
 
     public bool IsAttacking()
@@ -26,7 +27,7 @@ public class CharaAnimation : MonoBehaviour {
     }
     public bool IsSkillW()
     {
-        return SkillW;
+        return SkillWed;
     }
     void StartAttackHit()
     {
@@ -42,6 +43,7 @@ public class CharaAnimation : MonoBehaviour {
     void EndAttack()
     {
         attacked = true;
+        SkillWed = true;
         Attacking = false;
     }
     void EndAttackQ()
@@ -55,6 +57,11 @@ public class CharaAnimation : MonoBehaviour {
         status = GetComponent<CharacterStatus>();
 
         prePosition = transform.position;
+    }
+    void EndHit()
+    {
+        animator.SetBool("Damage", false);
+        animator.SetBool("Kockback", false);
     }
 	// Use this for initialization
 	
@@ -73,12 +80,12 @@ public class CharaAnimation : MonoBehaviour {
         if (attackedQ && !status.SkillQ)
             attackedQ = false;
 
-        if (SkillW && !status.SkillW)
-            SkillW = false;
+        if (SkillWed && !status.SkillW)
+            SkillWed = false;
 
         animator.SetBool("Attacking", (!attacked && status.attacking));
         animator.SetBool("SkillQ", (!attackedQ && status.SkillQ));
-        animator.SetBool("SkillW", (!SkillW && status.SkillW));
+        animator.SetBool("SkillW", (!SkillWed && status.SkillW));
         if(!isDown&&status.died)
         {
             isDown = true;

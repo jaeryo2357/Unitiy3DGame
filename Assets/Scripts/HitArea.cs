@@ -9,6 +9,14 @@ public class HitArea : MonoBehaviour {
         if (attackInfo.isSkillQ)
             Instantiate(particle, transform.position,
                 transform.rotation);
+        else if(attackInfo.isSkillW)
+        {
+            transform.root.GetComponent<Animator>().SetBool("Kockback", true);
+        }
+        else
+        {
+            transform.root.GetComponent<Animator>().SetBool("Damage", true);
+        }
         transform.root.SendMessage("Damage", attackInfo);
     }
 }

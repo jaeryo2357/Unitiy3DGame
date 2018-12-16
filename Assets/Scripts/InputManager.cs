@@ -37,9 +37,11 @@ public class InputManager : MonoBehaviour {
                 moved = true;
 		}
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             W = true;
-        else if(Input.GetKeyDown(KeyCode.Q))
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             Q = true;
         }

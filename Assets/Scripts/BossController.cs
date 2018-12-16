@@ -51,7 +51,7 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("" + nextState);
+
         switch (state)
         {
             case State.Walking:
@@ -151,7 +151,7 @@ public class BossController : MonoBehaviour
         {
             ChangeState(State.Walking);
             characterMove.walkSpeed = 2.6f;
-            waitTime = Random.Range(waitBaseTime, waitBaseTime * 4.0f);
+            waitTime = Random.Range(waitBaseTime, waitBaseTime * 5.5f);
         }
         }
     // 추적 시작.
