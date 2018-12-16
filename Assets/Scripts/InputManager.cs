@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour {
 
@@ -37,13 +38,15 @@ public class InputManager : MonoBehaviour {
                 moved = true;
 		}
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)&&GameObject.Find("SkillE").GetComponent<Image>().fillAmount<=0)
         {
             W = true;
+            GameObject.Find("SkillE").GetComponent<Image>().fillAmount = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q)&& GameObject.Find("SkillQ").GetComponent<Image>().fillAmount <= 0)
         {
             Q = true;
+            GameObject.Find("SkillQ").GetComponent<Image>().fillAmount = 1;
         }
         
 

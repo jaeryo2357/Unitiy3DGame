@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
     GameObject Hp;
     GameObject HpText;
     GameObject enemyhp;
+    GameObject SkillQ;
+    GameObject SkillE;
     public GameObject enemyUI;
     public Camera firstPersonCamera;
     public Camera overheadCamera;
@@ -22,9 +24,13 @@ public class GameManager : MonoBehaviour {
         enemyhp = GameObject.Find("Hp");
         Hp = GameObject.Find("Hpbar");
         HpText = GameObject.Find("HpbarText");
+        SkillQ = GameObject.Find("SkillQ");
+        SkillE = GameObject.Find("SkillE");
+        SkillE.GetComponent<Image>().fillAmount = 0;
+        SkillQ.GetComponent<Image>().fillAmount = 0;
         playerHp = 100;
         ShowOverheadView();
-        
+
 	}
     public void ShowOverheadView()
     {
@@ -87,5 +93,12 @@ public class GameManager : MonoBehaviour {
         {
             wallbegin = false;
         }
+        if (SkillQ.GetComponent<Image>().fillAmount > 0)
+            SkillQ.GetComponent<Image>().fillAmount -= 0.02f;
+        if (SkillE.GetComponent<Image>().fillAmount > 0)
+            SkillE.GetComponent<Image>().fillAmount -= 0.03f;
+
+
+
     }
 }
