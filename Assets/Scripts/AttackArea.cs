@@ -62,15 +62,17 @@ public class AttackArea : MonoBehaviour {
    
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("충돌");
+        if (transform.root != other.transform.root)
+        {
+            Debug.Log("충돌");
             other.SendMessage("Damage", GetAttackInfo());
-        if (status != null)
-            status.lastAttackTarget = other.transform.root.gameObject;
-      else
-            bossstatus.lastAttackTarget = other.transform.root.gameObject;
-        if(other.transform.root.gameObject.tag !="Player")
-        GameObject.Find("GameManager").GetComponent<GameManager>().lastTarget(other.transform.root.gameObject);
-
+            if (status != null)
+                status.lastAttackTarget = other.transform.root.gameObject;
+            else
+                bossstatus.lastAttackTarget = other.transform.root.gameObject;
+            if (other.transform.root.gameObject.tag != "Player")
+                GameObject.Find("GameManager").GetComponent<GameManager>().lastTarget(other.transform.root.gameObject);
+        }
     }
     public void SendQgage(float gage)
     {

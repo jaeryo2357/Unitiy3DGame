@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour {
     public GameObject Wall1;
     public GameObject wall3;
     public GameObject wall2;
+    public Sprite wolf;
+    public Sprite heo;
+    public Sprite dragon;
+    public Sprite boss;
     int playerHp;
     public bool wallbegin = true;
 	// Use this for initialization
@@ -71,15 +75,47 @@ public class GameManager : MonoBehaviour {
 
     public void lastTarget(GameObject enemy)
     {
-        if (enemy.GetComponent<CharacterStatus>().HP > 0)
+        CharacterStatus statuse = enemy.GetComponent<CharacterStatus>();
+        if (statuse != null)
         {
-            enemyUI.SetActive(true);
-            enemyhp.GetComponent<Image>().fillAmount = (float)enemy.GetComponent<CharacterStatus>().HP / enemy.GetComponent<CharacterStatus>().MaxHP;
+            if (statuse.characterName.Equals("Dragon"))
+                enemyUI.GetComponent<Image>().sprite = dragon;
+            else if(statuse.characterName.Equals("Warg"))
+                enemyUI.GetComponent<Image>().sprite = wolf;
+            else if (statuse.characterName.Equals("Skeleton"))
+                enemyUI.GetComponent<Image>().sprite = heo;
+           
+
+
+
+
+            if (enemy.GetComponent<CharacterStatus>().HP > 0)
+            {
+                enemyUI.SetActive(true);
+                enemyhp.GetComponent<Image>().fillAmount = (float)enemy.GetComponent<CharacterStatus>().HP / enemy.GetComponent<CharacterStatus>().MaxHP;
+            }
+            else
+            {
+                enemyUI.SetActive(false);
+            }
         }
         else
         {
-            enemyUI.SetActive(false);
+            BossStatus statusb = enemy.GetComponent<BossStatus>();
+            enemyUI.GetComponent<Image>().sprite = boss;
+
+
+            if (statusb.HP > 0)
+            {
+                enemyUI.SetActive(true);
+                enemyhp.GetComponent<Image>().fillAmount = (float)statusb.HP /statusb.MaxHP;
+            }
+            else
+            {
+                enemyUI.SetActive(false);
+            }
         }
+       
     }
 	// Update is called once per frame
 	void Update () {
