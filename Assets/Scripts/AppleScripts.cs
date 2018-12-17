@@ -17,10 +17,11 @@ public class AppleScripts : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Player")
+        if(other.gameObject.CompareTag("Player"))
         {
             Manager.GetComponent<GameManager>().playerHpUp(Hp);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+       
     }
 }

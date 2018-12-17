@@ -9,7 +9,7 @@ public class CharaAnimation : MonoBehaviour {
     bool isDown=false;
     bool attacked = false;
     bool attackedQ = false;
-
+    public bool isKockdown = false;
     bool SkillWed = false;
     bool Attacking = false;
 
@@ -62,6 +62,7 @@ public class CharaAnimation : MonoBehaviour {
     {
         animator.SetBool("Damage", false);
         animator.SetBool("Kockback", false);
+        isKockdown = false;
     }
 	// Use this for initialization
 	

@@ -12,6 +12,7 @@ public class HitArea : MonoBehaviour {
         else if(attackInfo.isSkillW)
         {
             transform.root.GetComponent<Animator>().SetBool("Kockback", true);
+            transform.root.GetComponent<CharaAnimation>().isKockdown = true;
         }
         else
         {

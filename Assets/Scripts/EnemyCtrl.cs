@@ -95,7 +95,7 @@ public class EnemyCtrl : MonoBehaviour {
             // 대기 시간을 줄인다.
             waitTime -= Time.deltaTime;
             // 대기 시간이 없어지면.
-            if (waitTime <= 0.0f)
+            if (waitTime <= 0.0f &&!charaAnimation.isKockdown)
             {
                 // 범위 내의 어딘가.
                 Vector2 randomValue = Random.insideUnitCircle * walkRange;
@@ -114,7 +114,7 @@ public class EnemyCtrl : MonoBehaviour {
                 waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
             }
             // 타겟을 발견하면 추적한다.
-            if (attackTarget)
+            if (attackTarget&&!charaAnimation.isKockdown)
             {
                 ChangeState(State.Chasing);
             }

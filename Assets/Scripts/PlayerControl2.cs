@@ -40,43 +40,45 @@ public class PlayerControl2 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-        switch (state)
+        if (!status.died)
         {
-            case State.Walking:
-                Walking();
-                break;
-            case State.Attacking:
-                Attacking();
-                break;
-            case State.SkillQ:
-                SkillQing();
-                break;
-            case State.Kick:
-                SkillWing();
-                break;
-        }
-
-        if (state != nextState)
-        {
-            state = nextState;
             switch (state)
             {
                 case State.Walking:
-                    WalkStart();
+                    Walking();
                     break;
                 case State.Attacking:
-                    AttackStart();
+                    Attacking();
                     break;
                 case State.SkillQ:
-                    SkillQStart();
+                    SkillQing();
                     break;
                 case State.Kick:
-                    SkillWStart();
+                    SkillWing();
                     break;
-                case State.Died:
-                    Died();
-                    break;
+            }
+
+            if (state != nextState)
+            {
+                state = nextState;
+                switch (state)
+                {
+                    case State.Walking:
+                        WalkStart();
+                        break;
+                    case State.Attacking:
+                        AttackStart();
+                        break;
+                    case State.SkillQ:
+                        SkillQStart();
+                        break;
+                    case State.Kick:
+                        SkillWStart();
+                        break;
+                    case State.Died:
+                        Died();
+                        break;
+                }
             }
         }
     }

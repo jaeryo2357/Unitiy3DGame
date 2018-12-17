@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
     public Sprite heo;
     public Sprite dragon;
     public Sprite boss;
+    public bool Wall1clear;
+    public bool Wall2clear;
+    public bool Wall3clear;
     int playerHp;
     public bool wallbegin = true;
 	// Use this for initialization
@@ -34,8 +37,11 @@ public class GameManager : MonoBehaviour {
         SkillQ.GetComponent<Image>().fillAmount = 0;
         playerHp = 100;
         ShowOverheadView();
+        Wall1clear = false;
+    Wall2clear=false;
+    Wall3clear=false;
 
-	}
+}
     public void ShowOverheadView()
     {
         firstPersonCamera.enabled = false;
@@ -117,6 +123,23 @@ public class GameManager : MonoBehaviour {
         }
        
     }
+
+    public void ClearStage(int a)
+    {
+        switch (a)
+        {
+            case 0:
+                Wall1clear = true;
+                break;
+            case 1:
+                Wall2clear = true;
+                break;
+            case 2:
+                Wall3clear = true;
+                break;
+        }
+    
+    }
 	// Update is called once per frame
 	void Update () {
         if (Wall1.transform.position.y < 0.5f&&wallbegin)
@@ -134,6 +157,18 @@ public class GameManager : MonoBehaviour {
         if (SkillE.GetComponent<Image>().fillAmount > 0)
             SkillE.GetComponent<Image>().fillAmount -= 0.03f;
 
+        if(Wall1clear&&Wall1.transform.position.y>-3.5f)
+        {
+            Wall1.transform.Translate(0, -0.02f, 0);
+        }
+        if (Wall2clear && wall2.transform.position.y > -3.5f)
+        {
+            wall2.transform.Translate(0, -0.02f, 0);
+        }
+        if (Wall3clear && wall3.transform.position.y > -3.5f)
+        {
+            wall3.transform.Translate(0, -0.02f, 0);
+        }
 
 
     }

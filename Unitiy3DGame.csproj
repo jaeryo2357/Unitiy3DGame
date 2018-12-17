@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SearchArea.cs" />
     <Compile Include="Assets\Scripts\SwordSkill.cs" />
+    <Compile Include="Assets\Scripts\potabScript.cs" />
     <Compile Include="Assets\Warrior Pack Bundle 3 FREE\Code\IKHands.cs" />
     <Compile Include="Assets\Warrior Pack Bundle 3 FREE\Code\SmoothFollow.cs" />
     <Compile Include="Assets\Warrior Pack Bundle 3 FREE\Code\WarriorAnimationDemoFREE.cs" />

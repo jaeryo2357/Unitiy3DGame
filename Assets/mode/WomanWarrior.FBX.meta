@@ -1128,13 +1128,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.052373335
-        functionName: NotHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.17819141
         functionName: StartAttackHit
         data: 
@@ -1144,13 +1137,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.45987335
         functionName: EndAttackHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.55209965
-        functionName: NowHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -1330,22 +1316,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.15359387
-        functionName: NotHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.7233896
         functionName: EndAttackHit
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8506772
-        functionName: NowHit
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
