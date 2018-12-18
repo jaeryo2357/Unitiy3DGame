@@ -90,13 +90,16 @@ public class AttackArea : MonoBehaviour {
     {
         QAttack = true;
         QDamege = (int)gage;
+        WAttack = false;
     }
     public void QEnd()
     {
         QAttack = false;
+        WAttack = false;
     }
     public void SendW(bool Wpower)
     {
+        QAttack = false;
         WAttack = Wpower;
     }
 

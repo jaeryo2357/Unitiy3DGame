@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class BossController : MonoBehaviour
@@ -7,7 +8,9 @@ public class BossController : MonoBehaviour
     BossAnimation bossAnimation;
     CharacterMove characterMove;
     Transform attackTarget;
-
+    public AudioClip Sword;
+    public AudioClip run;
+    float diedtime = 10.0f;
 
 
     // 대기 시간은 2초로 설정한다.
@@ -51,7 +54,7 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!GetComponent<BossAnimation>().isKockdown) { 
         switch (state)
         {
             case State.Walking:
@@ -66,28 +69,32 @@ public class BossController : MonoBehaviour
             case State.Attacking5:
                 Attack5Start();
                 break;
+            case State.Died:
+                Died();
+                break;
         }
 
-        if (state != nextState)
-        {
-            state = nextState;
-            switch (state)
+            if (state != nextState)
             {
-                case State.Walking:
-                    WalkStart();
-                    break;
-                case State.Chasing:
-                    ChaseStart();
-                    break;
-                case State.Attacking:
-                    AttackStart();
-                    break;
-                case State.Died:
-                    Died();
-                    break;
-                case State.Attacking5:
-                    Attacking5();
-                    break;
+                state = nextState;
+                switch (state)
+                {
+                    case State.Walking:
+                        WalkStart();
+                        break;
+                    case State.Chasing:
+                        ChaseStart();
+                        break;
+                    case State.Attacking:
+                        AttackStart();
+                        break;
+                    case State.Died:
+                        Died();
+                        break;
+                    case State.Attacking5:
+                        Attacking5();
+                        break;
+                }
             }
         }
     }
@@ -200,7 +207,8 @@ public class BossController : MonoBehaviour
     {
         StateStartCommon();
         status.Attack1 = true;
-
+        GetComponent<AudioSource>().clip = Sword;
+        GetComponent<AudioSource>().Play();
         // 적이 있는 방향으로 돌아본다.
         Vector3 targetDirection = (attackTarget.position - transform.position).normalized;
         SendMessage("SetDirection", targetDirection);
@@ -233,9 +241,12 @@ public class BossController : MonoBehaviour
 
     void Died()
     {
+
         status.died = true;
         dropItem();
-        Destroy(gameObject);
+        diedtime -= 0.06f;
+        if(diedtime<0.0f)
+        SceneManager.LoadScene("GameOver");
     }
 
     void Damage(AttackArea.AttackInfo attackInfo)

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
     public bool Wall1clear;
     public bool Wall2clear;
     public bool Wall3clear;
-    int playerHp;
+    
     public bool wallbegin = true;
 	// Use this for initialization
 	void Start () {
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
         SkillE = GameObject.Find("SkillE");
         SkillE.GetComponent<Image>().fillAmount = 0;
         SkillQ.GetComponent<Image>().fillAmount = 0;
-        playerHp = 100;
+        
         ShowOverheadView();
         Wall1clear = false;
     Wall2clear=false;
@@ -67,16 +67,21 @@ public class GameManager : MonoBehaviour {
 
     public void playerAttacked(int power)
     {
+        Debug.Log("" + power);
         Hp.GetComponent<Image>().fillAmount -= (float)power / 100;
-        playerHp -= power;
-        HpText.GetComponent<Text>().text = playerHp + "/100";
+       
+        if (GameObject.Find("Player").GetComponent<CharacterStatus>().HP < 0)
+            GameObject.Find("Player").GetComponent<CharacterStatus>().HP = 0;
+        HpText.GetComponent<Text>().text = GameObject.Find("Player").GetComponent<CharacterStatus>().HP + "/100";
     }
 
     public void playerHpUp(int power)
     {
         Hp.GetComponent<Image>().fillAmount += (float)power / 100;
-        playerHp += power;
-        HpText.GetComponent<Text>().text = playerHp + "/100";
+        GameObject.Find("Player").GetComponent<CharacterStatus>().HP += power;
+        if (GameObject.Find("Player").GetComponent<CharacterStatus>().HP > 100)
+            GameObject.Find("Player").GetComponent<CharacterStatus>().HP = 100;
+        HpText.GetComponent<Text>().text = GameObject.Find("Player").GetComponent<CharacterStatus>().HP + "/100";
     }
 
     public void lastTarget(GameObject enemy)
@@ -136,6 +141,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case 2:
                 Wall3clear = true;
+                GetComponent<AudioSource>().PlayDelayed(0.3f);
                 break;
         }
     

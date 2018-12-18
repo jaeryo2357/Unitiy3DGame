@@ -13,7 +13,7 @@ public class BossStatus : MonoBehaviour {
     public GameObject lastAttackTarget = null;
     public string characterName = "Orc";
 
-    
+    public bool isKockback = false;
     public bool died = false;
     public bool Attack1 = false;
     public bool Attack2=    false;

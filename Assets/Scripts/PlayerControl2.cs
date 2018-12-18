@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerControl2 : MonoBehaviour {
@@ -140,6 +141,7 @@ public class PlayerControl2 : MonoBehaviour {
 
     void AttackStart()
     {
+        GetComponent<AudioSource>().PlayDelayed(0.2f);
         sword.SendMessage("QEnd");
         StateStartCommon();
         status.attacking = true;
@@ -158,7 +160,7 @@ public class PlayerControl2 : MonoBehaviour {
         }
         else
         {
-            if (Qgage < 100)
+            if (Qgage < 40)
                 Qgage += 3.1f;
         }
     }
@@ -177,6 +179,7 @@ public class PlayerControl2 : MonoBehaviour {
     void Died()
     {
         status.died = true;
+        SceneManager.LoadScene("Game");
     }
     void Damage(AttackArea.AttackInfo attackInfo)
     {
@@ -185,6 +188,7 @@ public class PlayerControl2 : MonoBehaviour {
         {
             status.HP = 0;
             ChangeState(State.Died);
+         
         }
         gameManager.GetComponent<GameManager>().playerAttacked(attackInfo.attackPower);
     }

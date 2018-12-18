@@ -13,6 +13,7 @@ public class BossAnimation : MonoBehaviour
     bool Attacking5 = false;
     bool attacked5=false;
     bool Attacking = false;
+    public bool isKockdown=false;
 
     public bool IsAttacking()
     {
@@ -51,6 +52,11 @@ public class BossAnimation : MonoBehaviour
         attacked5 = true;
         Attacking5 = false;
     }
+
+    void EndHit()
+    {
+        isKockdown = false;
+    }
   
 
     void Start()
@@ -83,8 +89,10 @@ public class BossAnimation : MonoBehaviour
         }
 
 
-
+        if(Random.Range(0,3)<1)
         animator.SetBool("Attack1", (!attacked && status.Attack1));
+        else
+            animator.SetBool("Attack3", (!attacked && status.Attack1));
         animator.SetBool("Attack5", (!attacked5 && status.Attack5));
         if (!isDown && status.died)
         {
